@@ -1,6 +1,8 @@
 import { h, Component } from "preact";
 import { Router } from "preact-router";
 
+import NProgress from 'nprogress';
+
 import Home from "../routes/home";
 import Event from "../routes/event";
 import Organizer from "../routes/organizer";
@@ -15,7 +17,11 @@ export default class App extends Component {
    *	@param {string} event.url	The newly routed URL
    */
   handleRoute = e => {
+    NProgress.start();
     this.currentUrl = e.url;
+    // debugger;
+    console.log(NProgress);
+    NProgress.done();
   };
 
   render() {
