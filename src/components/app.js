@@ -19,8 +19,6 @@ export default class App extends Component {
   handleRoute = e => {
     NProgress.start();
     this.currentUrl = e.url;
-    // debugger;
-    console.log(NProgress);
     NProgress.done();
   };
 
