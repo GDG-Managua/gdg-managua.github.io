@@ -1,10 +1,11 @@
 import { h, Component } from "preact";
 import { Router } from "preact-router";
 
-import Header from "./header";
-import Intro from "./intro";
 import Home from "../routes/home";
-import Profile from "../routes/profile";
+import Event from "../routes/event";
+import Organizer from "../routes/organizer";
+import Sponsor from "../routes/sponsor";
+
 // import Home from 'async!../routes/home';
 // import Profile from 'async!../routes/profile';
 
@@ -20,7 +21,14 @@ export default class App extends Component {
   render() {
     return (
       <div id="app">
-        <Intro />
+        <div className="intro__image">
+          <Router onChange={this.handleRoute}>
+            <Home path="/" />
+            <Event path="/events" />
+            <Organizer path="/organizers" />
+            <Sponsor path="/sponsors" />
+          </Router>
+        </div>
       </div>
     );
   }

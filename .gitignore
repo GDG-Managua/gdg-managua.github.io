@@ -61,6 +61,7 @@ typings/
 
 # lock files
 yarn.lock
-package-lock.jsonbuild
+package-lock.json
+
 build/
 .netlify

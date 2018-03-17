@@ -10,50 +10,34 @@ import "preact-material-components/Dialog/style.css";
 import "preact-material-components/Drawer/style.css";
 import "preact-material-components/List/style.css";
 import "preact-material-components/Toolbar/style.css";
-// import style from './style';
+import style from './style';
 
 export default class Header extends Component {
-  closeDrawer() {
+
+  componentDidMount() {
     this.drawer.MDComponent.open = false;
-    this.state = {
-      darkThemeEnabled: false
-    };
   }
+
+  drawerRef = drawer => (this.drawer = drawer);
 
   openDrawer = () => (this.drawer.MDComponent.open = true);
 
-  openSettings = () => this.dialog.MDComponent.show();
-
-  drawerRef = drawer => (this.drawer = drawer);
-  dialogRef = dialog => (this.dialog = dialog);
-
   linkTo = path => () => {
     route(path);
-    this.closeDrawer();
   };
 
-  goHome = this.linkTo("/");
-  goToMyProfile = this.linkTo("/profile");
+  goToHome = this.linkTo("/");
 
-  toggleDarkTheme = () => {
-    this.setState(
-      {
-        darkThemeEnabled: !this.state.darkThemeEnabled
-      },
-      () => {
-        if (this.state.darkThemeEnabled) {
-          document.body.classList.add("mdc-theme--dark");
-        } else {
-          document.body.classList.remove("mdc-theme--dark");
-        }
-      }
-    );
-  };
+  goToEvents = this.linkTo("/events");
+
+  goToOrganizers = this.linkTo("/organizers");
+
+  goToSponsors = this.linkTo("/sponsors");
 
   render() {
     return (
       <div>
-        <Toolbar className="toolbar">
+        <Toolbar className={style.toolbar}>
           <Toolbar.Row>
             <Toolbar.Section align-start>
               <Toolbar.Icon menu onClick={this.openDrawer}>
@@ -61,36 +45,30 @@ export default class Header extends Component {
               </Toolbar.Icon>
               <Toolbar.Title>GDG Managua</Toolbar.Title>
             </Toolbar.Section>
-            <Toolbar.Section align-end onClick={this.openSettings}>
-              <Toolbar.Icon>settings</Toolbar.Icon>
-            </Toolbar.Section>
           </Toolbar.Row>
         </Toolbar>
         <Drawer.TemporaryDrawer ref={this.drawerRef}>
           <Drawer.TemporaryDrawerContent>
             <List>
-              <List.LinkItem onClick={this.goHome}>
+              <List.LinkItem onClick={this.goToHome}>
                 <List.ItemIcon>home</List.ItemIcon>
                 Home
               </List.LinkItem>
-              <List.LinkItem onClick={this.goToMyProfile}>
+              <List.LinkItem onClick={this.goToEvents}>
                 <List.ItemIcon>account_circle</List.ItemIcon>
-                Profile
+                Events
+              </List.LinkItem>
+              <List.LinkItem onClick={this.goToOrganizers}>
+                <List.ItemIcon>account_circle</List.ItemIcon>
+                Organizers
+              </List.LinkItem>
+              <List.LinkItem onClick={this.goToSponsors}>
+                <List.ItemIcon>account_circle</List.ItemIcon>
+                Sponsors
               </List.LinkItem>
             </List>
           </Drawer.TemporaryDrawerContent>
         </Drawer.TemporaryDrawer>
-        <Dialog ref={this.dialogRef}>
-          <Dialog.Header>Settings</Dialog.Header>
-          <Dialog.Body>
-            <div>
-              Enable dark theme <Switch onClick={this.toggleDarkTheme} />
-            </div>
-          </Dialog.Body>
-          <Dialog.Footer>
-            <Dialog.FooterButton accept>okay</Dialog.FooterButton>
-          </Dialog.Footer>
-        </Dialog>
       </div>
     );
   }

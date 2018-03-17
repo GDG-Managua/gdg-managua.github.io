@@ -1,13 +1,18 @@
-.home {
-	padding: 20px;
-	min-height: 100%;
-	width: 100%;
+
+.intro__banner img {
+  width: 600px;
 }
 
-.cardHeader {
-	padding: 16px;
+.intro__nav {
+  list-style: none;
+  text-align: center;
+  padding: 0;
 }
-
-.cardBody {
-	padding: 16px
+.intro__nav a {
+  color: #FAFAFA;
+  text-decoration: none;
+}
+.intro__nav li {
+  display: inline-block;
+  padding: 5px;
 }
