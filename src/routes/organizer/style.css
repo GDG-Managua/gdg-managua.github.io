@@ -1,0 +1,40 @@
+.title {
+  padding: 24px;
+}
+
+.card_oscar, .card_jonathan,
+.card_marcos, .card_andrea {
+  color: #FFF;
+  height: 250px;
+}
+.card_oscar {
+  background: url(https://avatars2.githubusercontent.com/u/2553459?s=460&v=4) center / cover;
+}
+.card_jonathan {
+  background: url(https://avatars0.githubusercontent.com/u/5924187?s=460&v=4) center / cover;
+}
+.card_marcos {
+  background: url(http://code-fu.net.ni/wp-content/uploads/2018/02/msevilla.jpg) center / cover;
+}
+.card_andrea {
+  background: url(https://scontent-mia3-2.cdninstagram.com/vp/e92fe6977483301b8e001fe9e64e39aa/5B2A3AEC/t51.2885-15/e35/23668241_197912207420945_60087185176526848_n.jpg) center / cover;
+}
+
+.member {
+  background-color: #FFF;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.card_actions {
+  height: 52px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.card_label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
