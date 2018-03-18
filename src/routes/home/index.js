@@ -1,5 +1,5 @@
 import { h, Component } from "preact";
-import LogoImg from '../../assets/logo.png';
+import LogoImg from "../../assets/logo.png";
 import style from "./style";
 
 export default class Home extends Component {
@@ -14,14 +14,20 @@ export default class Home extends Component {
                 Meetup
               </a>
             </li> */}
-            <li>
-              <a href="/events">Events</a>
+            <li className={style.link_wrapper}>
+              <a className={style.link} href="/events">
+                <strong>E</strong>vents
+              </a>
             </li>
-            <li>
-              <a href="/organizers">Organizers</a>
+            <li className={style.link_wrapper}>
+              <a className={style.link} href="/organizers">
+                <strong>O</strong>rganizers
+              </a>
             </li>
-            <li>
-              <a href="/sponsors">Sponsors</a>
+            <li className={style.link_wrapper}>
+              <a className={style.link} href="/sponsors">
+                <strong>S</strong>ponsors
+              </a>
             </li>
           </ul>
         </div>
